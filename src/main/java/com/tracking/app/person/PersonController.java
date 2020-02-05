@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -17,6 +18,13 @@ public class PersonController {
     public String personForm(Model model) {
         model.addAttribute("person", new Person());
         return "person";
+    }
+
+    @GetMapping({"/view/{id}"})
+    public String updateForm(@PathVariable String id, Model model) {
+        Person personFromDb = personService.findById(Long.parseLong(id));
+        model.addAttribute("person", personFromDb);
+        return "view";
     }
 
     @PostMapping("/person")

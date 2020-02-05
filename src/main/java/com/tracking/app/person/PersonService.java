@@ -15,6 +15,10 @@ public class PersonService {
         personRepository.save(newPerson);
     }
 
+    public Person findById(Long id){
+        return personRepository.findById(id).get();
+    }
+
     public List<Person> getAllRecords(){
         return personRepository.findAll();
     }

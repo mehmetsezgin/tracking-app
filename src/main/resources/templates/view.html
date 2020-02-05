@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Update  Person</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+    <div class="container">
+        <form action="#" th:action="@{/person}" th:object="${person}" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input name="name" id="name" class="form-control" th:field="*{name}" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input name="phone" id="phone" class="form-control" th:field="*{phone}" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <input name="comment" id="comment" class="form-control" th:field="*{comment}" type="text"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Update">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
