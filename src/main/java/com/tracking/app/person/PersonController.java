@@ -27,6 +27,13 @@ public class PersonController {
         return "view";
     }
 
+    @GetMapping({"/delete/{id}"})
+    public String delete(@PathVariable String id, Model model) {
+        personService.deleteById(Long.parseLong(id));
+        model.addAttribute("id", id);
+        return "deleteresult";
+    }
+
     @PostMapping("/person")
     public String personSubmit(@ModelAttribute Person person) {
         personService.addPerson(person);
