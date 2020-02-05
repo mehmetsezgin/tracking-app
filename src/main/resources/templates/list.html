@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Records</title>
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Records </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> Name </th>
+                    <th> Phone </th>
+                    <th> Comment </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${records.empty}">
+                    <td colspan="2"> No Record Available </td>
+                </tr>
+                <tr th:each="record : ${records}">
+                    <td><span th:text="${record.id}"> Id </span></td>
+                    <td><span th:text="${record.name}"> Name </span></td>
+                    <td><span th:text="${record.phone}"> Phone </span></td>
+                    <td><span th:text="${record.comment}"> Comment </span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <a class="btn btn-success" href="#" th:href="@{/person}"> Add New </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
