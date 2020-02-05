@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>All Records</title>
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}" />
 </head>
 <body>
 <div class="container">
@@ -34,9 +34,9 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-md-6">
-            <a class="btn btn-success" href="#" th:href="@{/person}"> Add New </a>
-        </div>
+    </div>
+    <div class="row">
+        <a class="btn btn-success" href="#" th:href="@{/person}"> Add New </a>
     </div>
 </div>
 </body>
