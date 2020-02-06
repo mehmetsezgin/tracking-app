@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label>Picture</label>
-                <img  th:src="@{'data:image/jpeg;base64,'+${person.generateBase64Image()}}" />
+                <img th:src="@{'data:image/jpeg;base64,'+${person.generateBase64Image()}}" />
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Update">
