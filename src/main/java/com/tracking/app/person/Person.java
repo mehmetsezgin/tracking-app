@@ -1,5 +1,8 @@
 package com.tracking.app.person;
 
+import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,6 +23,20 @@ public class Person {
     @Column(name = "comment")
     private String comment;
 
+    @Column
+    private String fileName;
+
+    @Column
+    @Lob
+    private byte[] file;
+
+    @Transient
+    private MultipartFile multipartFile;
+
+    public String generateBase64Image()
+    {
+        return Base64.encodeBase64String(this.getFile());
+    }
 
     public Long getId() {
         return id;
@@ -51,5 +68,29 @@ public class Person {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public byte[] getFile() {
+        return file;
+    }
+
+    public void setFile(byte[] file) {
+        this.file = file;
+    }
+
+    public MultipartFile getMultipartFile() {
+        return multipartFile;
+    }
+
+    public void setMultipartFile(MultipartFile multipartFile) {
+        this.multipartFile = multipartFile;
     }
 }

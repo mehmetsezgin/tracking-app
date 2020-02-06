@@ -32,7 +32,7 @@
                     <td><span th:text="${record.phone}"> Phone </span></td>
                     <td><span th:text="${record.comment}"> Comment </span></td>
                     <td>
-                        <a class="btn btn-success" href="#" th:href="@{'/view/' + ${record.id}}"> Edit </a>
+                        <a class="btn btn-success" href="#" th:href="@{'/view/' + ${record.id}}"> View </a>
                         <a class="btn btn-success" href="#" th:href="@{'/delete/' + ${record.id}}"> Delete </a>
                     </td>
                 </tr>

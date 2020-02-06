@@ -8,7 +8,7 @@
 <body>
 <div class="container">
 <div class="container">
-    <form action="#" th:action="@{/person}" th:object="${person}" method="post">
+    <form action="#" th:action="@{/person}" th:object="${person}" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="name">Name</label>
             <input name="name" id="name" class="form-control" th:field="*{name}" type="text"/>
@@ -19,7 +19,13 @@
         </div>
         <div class="form-group">
             <label for="comment">Comment</label>
-            <textarea class="form-control rounded-0" id="comment" name="comment "rows="3" th:field="*{comment}"></textarea>
+            <textarea class="form-control rounded-0" id="comment" name="comment "rows="3"
+                      th:field="*{comment}"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="multipartFile">Picture</label>
+            <input type="file" class="form-control" id="multipartFile" name="multipartFile" accept="image/*"
+                   th:field="*{multipartFile}"/>
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Save">

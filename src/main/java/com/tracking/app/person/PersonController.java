@@ -3,10 +3,13 @@ package com.tracking.app.person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.io.IOException;
 
 @Controller
 public class PersonController {
@@ -36,6 +39,13 @@ public class PersonController {
 
     @PostMapping("/person")
     public String personSubmit(@ModelAttribute Person person) {
+        String fileName = StringUtils.cleanPath(person.getMultipartFile().getOriginalFilename());
+        person.setFileName(fileName);
+        try {
+            person.setFile(person.getMultipartFile().getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         personService.addPerson(person);
         return "result";
     }
